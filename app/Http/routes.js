@@ -16,11 +16,11 @@
 */
 
 const Route = use('Route');
-const Database = use('Database');
+const Post = use('App/Model/Post');
 
 Route.get('/', function * (request, response) {
   //Create a blog post with a set of data
-  yield Database.table('posts').insert({
+  const p = yield Post.create({
     title: 'My first blog post',
     author: 'Ryan',
 
@@ -29,12 +29,14 @@ Route.get('/', function * (request, response) {
 
 
     post_date: new Date(),
-    created_at: new Date(),
-    updated_at: new Date(),
+    //"updated_at" and "create_at" will be auto-populated
+    //by adonis and lucid
   });
 
-  //Gets all rows from the "posts"
-  const data = yield Database.table('posts').select('*');
+  response.send(p);
 
-  response.send(data);
+  //Gets all rows from the "posts"
+  // const data = yield Database.table('posts').select('*');
+  //
+  // response.send(data);
 });
