@@ -1,0 +1,30 @@
+{% extends "layout" %}
+
+
+{% block content %}
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+    <a href="/create" class="pure-button pure-button-primary">
+      Make a New Post
+    </a>
+
+      <table class="pure-table pure-table-striped">
+        <thead>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Author</th>
+        </thead>
+
+        <tbody>
+    {% for post in posts %}
+      <tr>
+        <td>{{ post.title }}</td>
+        <td>{{ post.post_date }}</td>
+        <td>{{ post.author }}</td>
+      </tr>
+    {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
