@@ -17,6 +17,7 @@ class PostController {
   //Show the user a form to create a new Post
   //GET - /create
   * create(request, response) {
+    yield response.sendView('posts.create');
     //
   }
 

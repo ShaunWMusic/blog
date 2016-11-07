@@ -1,0 +1,23 @@
+{% extends "layout" %}
+
+{% block content %}
+  <form action="/" method="POST" class="pure-form pure-form-aligned">
+    {{ csrfField }}
+    <p class="pure-control-group">
+      <label for="post-title">Title</label>
+      <input type="text" id="post-title" name="title" placeholder="Title">
+    </p>
+    <p class="pure-control-group">
+      <label for="post-author">Author</label>
+      <input type="text" id="post-author" name="author" placeholder="Author">
+    </p>
+    <p class="pure-control-group">
+      <label for="post-content">Content</label>
+      <textarea type="text" id="post-content" name="content" placeholder="Content"></textarea>
+    </p>
+
+    <p class="pure-controls">
+      <button class="pure-button pure-button-primary">Submit</button>
+    </p>
+  </form>
+{% endblock %}
