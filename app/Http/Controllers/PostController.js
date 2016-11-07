@@ -24,7 +24,19 @@ class PostController {
   //Save a new Post to the database
   //POST
   * store(request, response) {
-    //
+    //Get user inputs
+    const { title, author, content }  = request.all();
+     // const inputs = request.all();
+
+    yield Post.create({
+      title,
+      author,
+      content,
+      slug: title,
+      post_date: new Date(),
+    });
+
+    response.redirect('/');
   }
 
   * show(request, response) {
